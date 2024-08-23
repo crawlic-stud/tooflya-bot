@@ -19,7 +19,10 @@
           <h2 class="font-title text-center text-title mt-4">
             Туфля ультра ахуенчик 3000
           </h2>
-          <button class="w-full bg-primary text-white rounded-md mt-4 py-2">
+          <button
+            onclick="iWant()"
+            class="w-full bg-primary text-white rounded-md mt-4 py-2"
+          >
             Хочу!
           </button>
         </div>
@@ -32,7 +35,10 @@
           <h2 class="font-title text-center text-title mt-4">
             Туфля ультра ахуенчик 3000
           </h2>
-          <button class="w-full bg-primary text-white rounded-md mt-4 py-2">
+          <button
+            onclick="iWant()"
+            class="w-full bg-primary text-white rounded-md mt-4 py-2"
+          >
             Хочу!
           </button>
         </div>
@@ -45,7 +51,10 @@
           <h2 class="font-title text-center text-title mt-4">
             Туфля ультра ахуенчик 3000
           </h2>
-          <button class="w-full bg-primary text-white rounded-md mt-4 py-2">
+          <button
+            onclick="iWant()"
+            class="w-full bg-primary text-white rounded-md mt-4 py-2"
+          >
             Хочу!
           </button>
         </div>
@@ -58,7 +67,10 @@
           <h2 class="font-title text-center text-title mt-4">
             Туфля ультра ахуенчик 3000
           </h2>
-          <button class="w-full bg-primary text-white rounded-md mt-4 py-2">
+          <button
+            onclick="iWant()"
+            class="w-full bg-primary text-white rounded-md mt-4 py-2"
+          >
             Хочу!
           </button>
         </div>
@@ -71,7 +83,10 @@
           <h2 class="font-title text-center text-title mt-4">
             Туфля ультра ахуенчик 3000
           </h2>
-          <button class="w-full bg-primary text-white rounded-md mt-4 py-2">
+          <button
+            onclick="iWant()"
+            class="w-full bg-primary text-white rounded-md mt-4 py-2"
+          >
             Хочу!
           </button>
         </div>
@@ -84,11 +99,25 @@
           <h2 class="font-title text-center text-title mt-4">
             Туфля ультра ахуенчик 3000
           </h2>
-          <button class="w-full bg-primary text-white rounded-md mt-4 py-2">
+          <button
+            onclick="iWant()"
+            class="w-full bg-primary text-white rounded-md mt-4 py-2"
+          >
             Хочу!
           </button>
         </div>
       </div>
     </div>
+    <script>
+      const tg = window.Telegram.WebApp;
+
+      function iWant() {
+        let url = encodeURI(
+          "https://t.me/goodwin33/?text=Привет шалом хочу купить туфля 3000"
+        );
+        console.log(url);
+        tg.openLink(url);
+      }
+    </script>
   </body>
 </html>
