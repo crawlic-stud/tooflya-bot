@@ -6,6 +6,11 @@
     <title>Catalog</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" href="/static/styles/catalog.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="webcrumbs">
@@ -13,11 +18,30 @@
         {% for item in items %}
 
         <div class="w-full rounded-lg card p-4">
-          <img
+          <section
+            id="image-carousel{{ forloop.counter }}"
+            class="splide"
+            aria-label="Beautiful Images"
+          >
+            <div class="splide__track">
+              <ul class="splide__list">
+                {% for image in item.images %}
+                <li class="splide__slide">
+                  <img
+                    class="w-full h-[100px] object-cover rounded-md"
+                    src="{{ image }}"
+                    alt=""
+                  />
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </section>
+          <!-- <img
             class="w-full h-[100px] object-cover rounded-md"
             src="https://n1s2.hsmedia.ru/c7/c0/f0/c7c0f074c3eb0522c76c8aeb86302719/728x546_1_ff9d91796e16be65d13f7997d62b30e8@1280x960_0xac120003_6128636291652972718.jpeg"
             alt="Sneaker"
-          />
+          /> -->
           <h2 class="font-title text-center text-title mt-4">
             {{ item.name }}
           </h2>
@@ -42,6 +66,16 @@
         console.log(url);
         tg.openLink(url);
       }
+    </script>
+
+    <script>
+      const itemsLength = parseInt("{{ items | length }}");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        for (let i = 1; i < itemsLength + 1; i++) {
+          new Splide(`#image-carousel${i}`, { arrows: false }).mount();
+        }
+      });
     </script>
   </body>
 </html>
