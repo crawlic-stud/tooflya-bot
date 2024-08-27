@@ -1,8 +1,10 @@
-FROM python:3.10.8
+FROM python:3.11-slim
 
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
-COPY . .
+COPY src/app .
 
-CMD ["python", "src/main.py"]
+RUN python manage.py collectstatic --noinput
+
+CMD gunicorn app.wsgi:application -b 0.0.0.0:8000
