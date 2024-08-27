@@ -10,8 +10,9 @@ images = [
 
 
 def compress_images():
-    for image in Path("src/app/static/images").glob("*.jpg"):
+    for image in Path("./static/images").glob("*.jpg"):
         pil_image = Image.open(image)
+        pil_image.thumbnail([256.0, 256.0], Image.Resampling.LANCZOS)
         pil_image.save(image, format="jpeg", quality=20)
 
 
