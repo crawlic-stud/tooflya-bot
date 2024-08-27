@@ -11,7 +11,7 @@ images = [
 ]
 
 optimized_folder = Path("./static/images/optimized")
-
+optimized_folder.mkdir(exist_ok=True)
 
 def compress_images():
     for image_path in optimized_folder.parent.glob("*.jpg"):
