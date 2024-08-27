@@ -32,6 +32,5 @@ def index(request):
                 {"name": "Туфля GEL-CONTEND 7", "images": images},
                 {"name": "Туфля GEL-EXCITE 9", "images": images},
             ]
-            * 10
         },
     )

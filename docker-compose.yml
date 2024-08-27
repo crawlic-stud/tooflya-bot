@@ -4,4 +4,14 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    container_name: container-name
+    container_name: tooflya-app
+    volumes:
+      - staticfiles:/static
+    env_file:
+      - .env
+    ports:
+      - ${APP_PORT}:8000
+
+volumes:
+  staticfiles:  
+    driver: local
