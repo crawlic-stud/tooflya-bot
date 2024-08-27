@@ -1,7 +1,5 @@
-<html
-  lang="en"
-  style="--tg-viewport-height: 100vh; --tg-viewport-stable-height: 100vh"
->
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,114 +18,37 @@
         <div class="w-full rounded-lg card p-4">
           <section
             id="image-carousel1"
-            class="splide splide--slide splide--ltr splide--draggable is-active is-overflow is-initialized"
+            class="splide"
             aria-label="Beautiful Images"
-            aria-roledescription="carousel"
           >
-            <div
-              class="splide__track splide__track--slide splide__track--ltr splide__track--draggable"
-              id="image-carousel1-track"
-              style="padding-left: 0px; padding-right: 0px"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              <ul
-                class="splide__list"
-                id="image-carousel1-list"
-                role="presentation"
-                style="transform: translateX(0px)"
-              >
-                <li
-                  class="splide__slide is-active is-visible"
-                  id="image-carousel1-slide01"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="1 of 3"
-                  style="width: calc(100%)"
-                >
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide">
                   <img
                     class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.worldshop.eu/medias/img/8939992219678_w1500_z_274212826/adidas-lufthansa-limited-edition-sneaker-blue.jpeg"
+                    src="./images/sneaker1.jpg"
                     alt=""
                   />
                 </li>
-
-                <li
-                  class="splide__slide is-next"
-                  id="image-carousel1-slide02"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="2 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
+                <li class="splide__slide">
                   <img
                     class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.gabor.com/cache-buster-1/thumbnails/Produkte/Schuhe/710168/997675/image-thumb__997675__product-slider-large/710168_A1.jpg"
+                    src="./images/sneaker2.jpg"
                     alt=""
                   />
                 </li>
-
-                <li
-                  class="splide__slide"
-                  id="image-carousel1-slide03"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="3 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
+                <li class="splide__slide">
                   <img
                     class="w-full h-[100px] object-cover rounded-md"
-                    src="https://balenciaga.dam.kering.com/m/612ece00eb41d4be/Medium-734734W3XL11090_F.jpg?v=2"
+                    src="./images/sneaker3.jpg"
                     alt=""
                   />
                 </li>
               </ul>
             </div>
-            <ul
-              class="splide__pagination splide__pagination--ltr"
-              role="tablist"
-              aria-label="Select a slide to show"
-            >
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page is-active"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel1-slide01"
-                  aria-label="Go to slide 1"
-                  aria-selected="true"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel1-slide02"
-                  aria-label="Go to slide 2"
-                  tabindex="-1"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel1-slide03"
-                  aria-label="Go to slide 3"
-                  tabindex="-1"
-                ></button>
-              </li>
-            </ul>
           </section>
-          <!-- <img
-            class="w-full h-[100px] object-cover rounded-md"
-            src="https://n1s2.hsmedia.ru/c7/c0/f0/c7c0f074c3eb0522c76c8aeb86302719/728x546_1_ff9d91796e16be65d13f7997d62b30e8@1280x960_0xac120003_6128636291652972718.jpeg"
-            alt="Sneaker"
-          /> -->
-          <h2 class="font-title text-center text-title mt-4">Туфля 3000</h2>
+
+          <h2 class="font-title text-center text-title mt-4">Кроссовок</h2>
           <button
             onclick="iWant()"
             class="w-full button-primary text-white rounded-md mt-4 py-2"
@@ -135,604 +56,40 @@
             Хочу!
           </button>
         </div>
-
         <div class="w-full rounded-lg card p-4">
           <section
             id="image-carousel2"
-            class="splide splide--slide splide--ltr splide--draggable is-active is-overflow is-initialized"
+            class="splide"
             aria-label="Beautiful Images"
-            aria-roledescription="carousel"
           >
-            <div
-              class="splide__track splide__track--slide splide__track--ltr splide__track--draggable"
-              id="image-carousel2-track"
-              style="padding-left: 0px; padding-right: 0px"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              <ul
-                class="splide__list"
-                id="image-carousel2-list"
-                role="presentation"
-                style="transform: translateX(0px)"
-              >
-                <li
-                  class="splide__slide is-active is-visible"
-                  id="image-carousel2-slide01"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="1 of 3"
-                  style="width: calc(100%)"
-                >
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide">
                   <img
                     class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.worldshop.eu/medias/img/8939992219678_w1500_z_274212826/adidas-lufthansa-limited-edition-sneaker-blue.jpeg"
+                    src="./images/sneaker1.jpg"
                     alt=""
                   />
                 </li>
-
-                <li
-                  class="splide__slide is-next"
-                  id="image-carousel2-slide02"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="2 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
+                <li class="splide__slide">
                   <img
                     class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.gabor.com/cache-buster-1/thumbnails/Produkte/Schuhe/710168/997675/image-thumb__997675__product-slider-large/710168_A1.jpg"
+                    src="./images/sneaker2.jpg"
                     alt=""
                   />
                 </li>
-
-                <li
-                  class="splide__slide"
-                  id="image-carousel2-slide03"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="3 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
+                <li class="splide__slide">
                   <img
                     class="w-full h-[100px] object-cover rounded-md"
-                    src="https://balenciaga.dam.kering.com/m/612ece00eb41d4be/Medium-734734W3XL11090_F.jpg?v=2"
+                    src="./images/sneaker3.jpg"
                     alt=""
                   />
                 </li>
               </ul>
             </div>
-            <ul
-              class="splide__pagination splide__pagination--ltr"
-              role="tablist"
-              aria-label="Select a slide to show"
-            >
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page is-active"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel2-slide01"
-                  aria-label="Go to slide 1"
-                  aria-selected="true"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel2-slide02"
-                  aria-label="Go to slide 2"
-                  tabindex="-1"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel2-slide03"
-                  aria-label="Go to slide 3"
-                  tabindex="-1"
-                ></button>
-              </li>
-            </ul>
           </section>
-          <!-- <img
-            class="w-full h-[100px] object-cover rounded-md"
-            src="https://n1s2.hsmedia.ru/c7/c0/f0/c7c0f074c3eb0522c76c8aeb86302719/728x546_1_ff9d91796e16be65d13f7997d62b30e8@1280x960_0xac120003_6128636291652972718.jpeg"
-            alt="Sneaker"
-          /> -->
-          <h2 class="font-title text-center text-title mt-4">
-            Туфля GEL-KAYANO 28
-          </h2>
-          <button
-            onclick="iWant()"
-            class="w-full button-primary text-white rounded-md mt-4 py-2"
-          >
-            Хочу!
-          </button>
-        </div>
 
-        <div class="w-full rounded-lg card p-4">
-          <section
-            id="image-carousel3"
-            class="splide splide--slide splide--ltr splide--draggable is-active is-overflow is-initialized"
-            aria-label="Beautiful Images"
-            aria-roledescription="carousel"
-          >
-            <div
-              class="splide__track splide__track--slide splide__track--ltr splide__track--draggable"
-              id="image-carousel3-track"
-              style="padding-left: 0px; padding-right: 0px"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              <ul
-                class="splide__list"
-                id="image-carousel3-list"
-                role="presentation"
-                style="transform: translateX(0px)"
-              >
-                <li
-                  class="splide__slide is-active is-visible"
-                  id="image-carousel3-slide01"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="1 of 3"
-                  style="width: calc(100%)"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.worldshop.eu/medias/img/8939992219678_w1500_z_274212826/adidas-lufthansa-limited-edition-sneaker-blue.jpeg"
-                    alt=""
-                  />
-                </li>
-
-                <li
-                  class="splide__slide is-next"
-                  id="image-carousel3-slide02"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="2 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.gabor.com/cache-buster-1/thumbnails/Produkte/Schuhe/710168/997675/image-thumb__997675__product-slider-large/710168_A1.jpg"
-                    alt=""
-                  />
-                </li>
-
-                <li
-                  class="splide__slide"
-                  id="image-carousel3-slide03"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="3 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://balenciaga.dam.kering.com/m/612ece00eb41d4be/Medium-734734W3XL11090_F.jpg?v=2"
-                    alt=""
-                  />
-                </li>
-              </ul>
-            </div>
-            <ul
-              class="splide__pagination splide__pagination--ltr"
-              role="tablist"
-              aria-label="Select a slide to show"
-            >
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page is-active"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel3-slide01"
-                  aria-label="Go to slide 1"
-                  aria-selected="true"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel3-slide02"
-                  aria-label="Go to slide 2"
-                  tabindex="-1"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel3-slide03"
-                  aria-label="Go to slide 3"
-                  tabindex="-1"
-                ></button>
-              </li>
-            </ul>
-          </section>
-          <!-- <img
-            class="w-full h-[100px] object-cover rounded-md"
-            src="https://n1s2.hsmedia.ru/c7/c0/f0/c7c0f074c3eb0522c76c8aeb86302719/728x546_1_ff9d91796e16be65d13f7997d62b30e8@1280x960_0xac120003_6128636291652972718.jpeg"
-            alt="Sneaker"
-          /> -->
-          <h2 class="font-title text-center text-title mt-4">
-            Туфля GEL-NIMBUS 24
-          </h2>
-          <button
-            onclick="iWant()"
-            class="w-full button-primary text-white rounded-md mt-4 py-2"
-          >
-            Хочу!
-          </button>
-        </div>
-
-        <div class="w-full rounded-lg card p-4">
-          <section
-            id="image-carousel4"
-            class="splide splide--slide splide--ltr splide--draggable is-active is-overflow is-initialized"
-            aria-label="Beautiful Images"
-            aria-roledescription="carousel"
-          >
-            <div
-              class="splide__track splide__track--slide splide__track--ltr splide__track--draggable"
-              id="image-carousel4-track"
-              style="padding-left: 0px; padding-right: 0px"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              <ul
-                class="splide__list"
-                id="image-carousel4-list"
-                role="presentation"
-                style="transform: translateX(0px)"
-              >
-                <li
-                  class="splide__slide is-active is-visible"
-                  id="image-carousel4-slide01"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="1 of 3"
-                  style="width: calc(100%)"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.worldshop.eu/medias/img/8939992219678_w1500_z_274212826/adidas-lufthansa-limited-edition-sneaker-blue.jpeg"
-                    alt=""
-                  />
-                </li>
-
-                <li
-                  class="splide__slide is-next"
-                  id="image-carousel4-slide02"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="2 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.gabor.com/cache-buster-1/thumbnails/Produkte/Schuhe/710168/997675/image-thumb__997675__product-slider-large/710168_A1.jpg"
-                    alt=""
-                  />
-                </li>
-
-                <li
-                  class="splide__slide"
-                  id="image-carousel4-slide03"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="3 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://balenciaga.dam.kering.com/m/612ece00eb41d4be/Medium-734734W3XL11090_F.jpg?v=2"
-                    alt=""
-                  />
-                </li>
-              </ul>
-            </div>
-            <ul
-              class="splide__pagination splide__pagination--ltr"
-              role="tablist"
-              aria-label="Select a slide to show"
-            >
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page is-active"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel4-slide01"
-                  aria-label="Go to slide 1"
-                  aria-selected="true"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel4-slide02"
-                  aria-label="Go to slide 2"
-                  tabindex="-1"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel4-slide03"
-                  aria-label="Go to slide 3"
-                  tabindex="-1"
-                ></button>
-              </li>
-            </ul>
-          </section>
-          <!-- <img
-            class="w-full h-[100px] object-cover rounded-md"
-            src="https://n1s2.hsmedia.ru/c7/c0/f0/c7c0f074c3eb0522c76c8aeb86302719/728x546_1_ff9d91796e16be65d13f7997d62b30e8@1280x960_0xac120003_6128636291652972718.jpeg"
-            alt="Sneaker"
-          /> -->
-          <h2 class="font-title text-center text-title mt-4">
-            Туфля GEL-CUMULUS 24
-          </h2>
-          <button
-            onclick="iWant()"
-            class="w-full button-primary text-white rounded-md mt-4 py-2"
-          >
-            Хочу!
-          </button>
-        </div>
-
-        <div class="w-full rounded-lg card p-4">
-          <section
-            id="image-carousel5"
-            class="splide splide--slide splide--ltr splide--draggable is-active is-overflow is-initialized"
-            aria-label="Beautiful Images"
-            aria-roledescription="carousel"
-          >
-            <div
-              class="splide__track splide__track--slide splide__track--ltr splide__track--draggable"
-              id="image-carousel5-track"
-              style="padding-left: 0px; padding-right: 0px"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              <ul
-                class="splide__list"
-                id="image-carousel5-list"
-                role="presentation"
-                style="transform: translateX(0px)"
-              >
-                <li
-                  class="splide__slide is-active is-visible"
-                  id="image-carousel5-slide01"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="1 of 3"
-                  style="width: calc(100%)"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.worldshop.eu/medias/img/8939992219678_w1500_z_274212826/adidas-lufthansa-limited-edition-sneaker-blue.jpeg"
-                    alt=""
-                  />
-                </li>
-
-                <li
-                  class="splide__slide is-next"
-                  id="image-carousel5-slide02"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="2 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.gabor.com/cache-buster-1/thumbnails/Produkte/Schuhe/710168/997675/image-thumb__997675__product-slider-large/710168_A1.jpg"
-                    alt=""
-                  />
-                </li>
-
-                <li
-                  class="splide__slide"
-                  id="image-carousel5-slide03"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="3 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://balenciaga.dam.kering.com/m/612ece00eb41d4be/Medium-734734W3XL11090_F.jpg?v=2"
-                    alt=""
-                  />
-                </li>
-              </ul>
-            </div>
-            <ul
-              class="splide__pagination splide__pagination--ltr"
-              role="tablist"
-              aria-label="Select a slide to show"
-            >
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page is-active"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel5-slide01"
-                  aria-label="Go to slide 1"
-                  aria-selected="true"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel5-slide02"
-                  aria-label="Go to slide 2"
-                  tabindex="-1"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel5-slide03"
-                  aria-label="Go to slide 3"
-                  tabindex="-1"
-                ></button>
-              </li>
-            </ul>
-          </section>
-          <!-- <img
-            class="w-full h-[100px] object-cover rounded-md"
-            src="https://n1s2.hsmedia.ru/c7/c0/f0/c7c0f074c3eb0522c76c8aeb86302719/728x546_1_ff9d91796e16be65d13f7997d62b30e8@1280x960_0xac120003_6128636291652972718.jpeg"
-            alt="Sneaker"
-          /> -->
-          <h2 class="font-title text-center text-title mt-4">
-            Туфля GEL-CONTEND 7
-          </h2>
-          <button
-            onclick="iWant()"
-            class="w-full button-primary text-white rounded-md mt-4 py-2"
-          >
-            Хочу!
-          </button>
-        </div>
-
-        <div class="w-full rounded-lg card p-4">
-          <section
-            id="image-carousel6"
-            class="splide splide--slide splide--ltr splide--draggable is-active is-overflow is-initialized"
-            aria-label="Beautiful Images"
-            aria-roledescription="carousel"
-          >
-            <div
-              class="splide__track splide__track--slide splide__track--ltr splide__track--draggable"
-              id="image-carousel6-track"
-              style="padding-left: 0px; padding-right: 0px"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              <ul
-                class="splide__list"
-                id="image-carousel6-list"
-                role="presentation"
-                style="transform: translateX(0px)"
-              >
-                <li
-                  class="splide__slide is-active is-visible"
-                  id="image-carousel6-slide01"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="1 of 3"
-                  style="width: calc(100%)"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.worldshop.eu/medias/img/8939992219678_w1500_z_274212826/adidas-lufthansa-limited-edition-sneaker-blue.jpeg"
-                    alt=""
-                  />
-                </li>
-
-                <li
-                  class="splide__slide is-next"
-                  id="image-carousel6-slide02"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="2 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://www.gabor.com/cache-buster-1/thumbnails/Produkte/Schuhe/710168/997675/image-thumb__997675__product-slider-large/710168_A1.jpg"
-                    alt=""
-                  />
-                </li>
-
-                <li
-                  class="splide__slide"
-                  id="image-carousel6-slide03"
-                  role="tabpanel"
-                  aria-roledescription="slide"
-                  aria-label="3 of 3"
-                  style="width: calc(100%)"
-                  aria-hidden="true"
-                >
-                  <img
-                    class="w-full h-[100px] object-cover rounded-md"
-                    src="https://balenciaga.dam.kering.com/m/612ece00eb41d4be/Medium-734734W3XL11090_F.jpg?v=2"
-                    alt=""
-                  />
-                </li>
-              </ul>
-            </div>
-            <ul
-              class="splide__pagination splide__pagination--ltr"
-              role="tablist"
-              aria-label="Select a slide to show"
-            >
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page is-active"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel6-slide01"
-                  aria-label="Go to slide 1"
-                  aria-selected="true"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel6-slide02"
-                  aria-label="Go to slide 2"
-                  tabindex="-1"
-                ></button>
-              </li>
-              <li role="presentation">
-                <button
-                  class="splide__pagination__page"
-                  type="button"
-                  role="tab"
-                  aria-controls="image-carousel6-slide03"
-                  aria-label="Go to slide 3"
-                  tabindex="-1"
-                ></button>
-              </li>
-            </ul>
-          </section>
-          <!-- <img
-            class="w-full h-[100px] object-cover rounded-md"
-            src="https://n1s2.hsmedia.ru/c7/c0/f0/c7c0f074c3eb0522c76c8aeb86302719/728x546_1_ff9d91796e16be65d13f7997d62b30e8@1280x960_0xac120003_6128636291652972718.jpeg"
-            alt="Sneaker"
-          /> -->
-          <h2 class="font-title text-center text-title mt-4">
-            Туфля GEL-EXCITE 9
-          </h2>
+          <h2 class="font-title text-center text-title mt-4">Кроссовок</h2>
           <button
             onclick="iWant()"
             class="w-full button-primary text-white rounded-md mt-4 py-2"
@@ -755,13 +112,8 @@
     </script>
 
     <script>
-      const itemsLength = parseInt("6");
-
-      document.addEventListener("DOMContentLoaded", function () {
-        for (let i = 1; i < itemsLength + 1; i++) {
-          new Splide(`#image-carousel${i}`, { arrows: false }).mount();
-        }
-      });
+      new Splide(`#image-carousel1`, { arrows: false }).mount();
+      new Splide(`#image-carousel2`, { arrows: false }).mount();
     </script>
   </body>
 </html>
