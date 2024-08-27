@@ -1,19 +1,26 @@
 from pathlib import Path
+import random
 from django.shortcuts import render
 from PIL import Image
 
 images = [
-    "/static/images/sneaker1.jpg",
-    "/static/images/sneaker2.jpg",
-    "/static/images/sneaker3.jpg",
+    "/static/images/optimized/sneaker1.webp",
+    "/static/images/optimized/sneaker2.webp",
+    "/static/images/optimized/sneaker3.webp",
+    "/static/images/optimized/dimas.webp",
 ]
+
+optimized_folder = Path("./static/images/optimized")
 
 
 def compress_images():
-    for image in Path("./static/images").glob("*.jpg"):
-        pil_image = Image.open(image)
-        pil_image.thumbnail([256.0, 256.0], Image.Resampling.LANCZOS)
-        pil_image.save(image, format="jpeg", quality=20)
+    for image_path in optimized_folder.parent.glob("*.jpg"):
+        pil_image = Image.open(image_path)
+        pil_image.thumbnail([512.0, 512.0], Image.Resampling.LANCZOS)
+        optimized_image_path = (
+            optimized_folder / f'{image_path.name.removesuffix(".jpg")}.webp'
+        )
+        pil_image.save(optimized_image_path, format="webp", optimize=True, quality=85)
 
 
 compress_images()
