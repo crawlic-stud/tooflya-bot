@@ -26,7 +26,9 @@ SECRET_KEY = "django-insecure-aq2(54*m(@@f(j2iccc7#x!x(*(m+v2=a))v)kvck@bar%np0n
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+
 CSRF_TRUSTED_ORIGINS = ["https://*"]
+CSRF_ALLOWED_ORIGINS = ["https://*"]
 
 # Application definition
 
