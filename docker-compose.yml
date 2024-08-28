@@ -7,6 +7,7 @@ services:
     container_name: tooflya-app
     volumes:
       - staticfiles:/static
+      - data:/data
     env_file:
       - .env
     ports:
@@ -14,4 +15,6 @@ services:
 
 volumes:
   staticfiles:  
+    driver: local
+  data:
     driver: local
