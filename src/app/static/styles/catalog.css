@@ -340,12 +340,13 @@ video {
 #webcrumbs :is(.rounded-md) {
   border-radius: 12px;
 }
-#webcrumbs :is(.card) {
+.card {
   background-color: var(--tg-theme-bg-color, rgb(247, 212, 212));
 }
-#webcrumbs :is(.button-primary) {
+.button-primary {
   background-color: var(--tg-theme-button-color, rgb(59, 105, 66));
   color: var(--tg-theme-button-text-color, rgb(211, 243, 253));
+  font-size: 16px;
 }
 #webcrumbs :is(.object-cover) {
   object-fit: cover;
@@ -411,4 +412,8 @@ body {
   width: 100%;
   aspect-ratio: 1.5;
   object-fit: cover;
+}
+
+.bottom-btns {
+
 }
