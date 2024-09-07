@@ -32,8 +32,8 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 # TODO fix csrf later
-CSRF_TRUSTED_ORIGINS = ["https://*", "http://*"]
-# CSRF_ALLOWED_ORIGINS = ["https://*", "http://*"]
+CSRF_TRUSTED_ORIGINS = [os.environ["DJANGO_PROD_DOMAIN"]]
+CSRF_ALLOWED_ORIGINS = [os.environ["DJANGO_PROD_DOMAIN"]]
 
 # Application definition
 
