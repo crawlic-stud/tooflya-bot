@@ -6,8 +6,8 @@ services:
       dockerfile: ./Dockerfile
     container_name: tooflya-app
     volumes:
-      - staticfiles:/static
-      - data:/data
+      - staticfiles:/app/static
+      - data:/app/data
     env_file:
       - .env
     ports:
