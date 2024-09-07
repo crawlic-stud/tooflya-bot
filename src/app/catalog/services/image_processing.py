@@ -2,7 +2,10 @@ import io
 from pathlib import Path
 
 from PIL import Image
-from ...app.settings import IMAGES_URL, IMAGES_ROOT
+
+
+IMAGES_URL = "images/"
+IMAGES_ROOT = "static/images/"
 
 STATIC_IMAGES_PATH = Path(IMAGES_ROOT)
 STATIC_IMAGES_PATH.mkdir(exist_ok=True, parents=True)
