@@ -32,10 +32,8 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 # TODO fix csrf later
-CSRF_TRUSTED_ORIGINS = [
-    os.environ["DJANGO_PROD_DOMAIN"], 'http://127.0.0.1:8000']
-CSRF_ALLOWED_ORIGINS = [
-    os.environ["DJANGO_PROD_DOMAIN"], 'http://127.0.0.1:8000']
+CSRF_TRUSTED_ORIGINS = [os.environ["DJANGO_PROD_DOMAIN"], "http://127.0.0.1:8000"]
+CSRF_ALLOWED_ORIGINS = [os.environ["DJANGO_PROD_DOMAIN"], "http://127.0.0.1:8000"]
 
 # Application definition
 
@@ -129,8 +127,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
+IMAGES_URL = "images/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+IMAGES_ROOT = BASE_DIR / "static/images"
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 

@@ -9,7 +9,7 @@ def index(request):
     items = [
         {
             "name": product.name,
-            "images": [image.image.url for image in product.images.all()]
+            "images": [image.image.url for image in product.images.all()],
         }
         for product in products
     ]
