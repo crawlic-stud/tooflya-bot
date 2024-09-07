@@ -32,8 +32,8 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 # TODO fix csrf later
-CSRF_TRUSTED_ORIGINS = ["https://*"]
-CSRF_ALLOWED_ORIGINS = ["https://*"]
+CSRF_TRUSTED_ORIGINS = ["https://*", "http://*"]
+CSRF_ALLOWED_ORIGINS = ["https://*", "http://*"]
 
 # Application definition
 
