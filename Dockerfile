@@ -4,6 +4,7 @@ COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
 COPY src/app .
+COPY .env .
 
 RUN python manage.py collectstatic --noinput
 RUN python manage.py migrate
