@@ -4,4 +4,5 @@ __pycache__
 staticfiles
 db.sqlite3
 src/app/static/images
+src/app/static/admin
 .vscode
