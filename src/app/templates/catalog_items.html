@@ -1,0 +1,34 @@
+{% for item in items %}
+
+<div class="w-full rounded-lg card p-4">
+  <section
+    id="image-carousel{{ forloop.counter|add:items_offset }}"
+    class="splide"
+    aria-label="Beautiful Images"
+  >
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for image in item.images %}
+        <li class="splide__slide">
+          <img
+            class="w-full object-cover rounded-md"
+            src="{{ image }}"
+            alt=""
+          />
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  <h2 class="font-title text-center text-title mt-4">{{ item.name }}</h2>
+  <div class="bottom-btns">
+    <button
+      onclick="iWant()"
+      class="w-full button-primary text-white rounded-md mt-4 py-2"
+    >
+      Хочу!
+    </button>
+  </div>
+</div>
+
+{% endfor %}

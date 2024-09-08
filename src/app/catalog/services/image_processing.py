@@ -19,5 +19,7 @@ def optimize_and_save_image(image_bytes: io.BytesIO, filename: str):
     pil_image.thumbnail(_IMAGE_SIZE, Image.Resampling.LANCZOS)
     new_filename = f'{filename.split(".")[0]}.webp'
     optimized_image_path = STATIC_IMAGES_PATH / new_filename
-    pil_image.save(optimized_image_path, format="webp", optimize=True, quality=_IMAGE_QUALITY)
+    pil_image.save(
+        optimized_image_path, format="webp", optimize=True, quality=_IMAGE_QUALITY
+    )
     return IMAGES_URL + new_filename

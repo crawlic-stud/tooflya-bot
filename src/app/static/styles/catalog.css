@@ -417,3 +417,40 @@ body {
 .bottom-btns {
 
 }
+
+
+.spinner {
+  transform-origin: center;
+  animation: spinnerAnimation 2s linear infinite;
+}
+.spinner circle {
+  stroke-linecap: round;
+  animation: spinnerAnimation2 1.5s ease-in-out infinite;
+}
+@keyframes spinnerAnimation {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinnerAnimation2 {
+  0% {
+    stroke-dasharray: 0 150;
+    stroke-dashoffset: 0;
+  }
+  47.5% {
+    stroke-dasharray: 42 150;
+    stroke-dashoffset: -16;
+  }
+  95%,
+  100% {
+    stroke-dasharray: 42 150;
+    stroke-dashoffset: -59;
+  }
+}
+
+svg.spinner-loader {
+  display: block;
+  margin: 0 auto;
+  stroke: var(--tg-theme-button-text-color, rgb(211, 243, 253));
+  text-align: center;
+}

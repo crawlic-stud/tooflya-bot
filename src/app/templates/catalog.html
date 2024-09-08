@@ -14,44 +14,22 @@
   </head>
   <body>
     <div id="webcrumbs">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-1 p-0">
-        {% for item in items %}
-
-        <div class="w-full rounded-lg card p-4">
-          <section
-            id="image-carousel{{ forloop.counter }}"
-            class="splide"
-            aria-label="Beautiful Images"
-          >
-            <div class="splide__track">
-              <ul class="splide__list">
-                {% for image in item.images %}
-                <li class="splide__slide">
-                  <img
-                    class="w-full object-cover rounded-md"
-                    src="{{ image }}"
-                    alt=""
-                  />
-                </li>
-                {% endfor %}
-              </ul>
-            </div>
-          </section>
-          <h2 class="font-title text-center text-title mt-4">
-            {{ item.name }}
-          </h2>
-          <div class="bottom-btns">
-            <button
-              onclick="iWant()"
-              class="w-full button-primary text-white rounded-md mt-4 py-2"
-            >
-              Хочу!
-            </button>
-          </div>
-        </div>
-
-        {% endfor %}
-      </div>
+      <div
+        class="grid sm:grid-cols-2 lg:grid-cols-2 gap-1 p-0"
+        id="cards"
+      ></div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="48"
+        height="48"
+        stroke="#000"
+        viewBox="0 0 48 48"
+        class="spinner-loader"
+      >
+        <g class="spinner">
+          <circle cx="24" cy="24" r="19" fill="none" stroke-width="3" />
+        </g>
+      </svg>
     </div>
     <script>
       const tg = window.Telegram.WebApp;
@@ -66,13 +44,118 @@
     </script>
 
     <script>
-      const itemsLength = parseInt("{{ items | length }}");
-
-      document.addEventListener("DOMContentLoaded", function () {
-        for (let i = 1; i < itemsLength + 1; i++) {
-          new Splide(`#image-carousel${i}`, { arrows: false }).mount();
+      function getParameterByName(name, defaultValue) {
+        const urlParams = new URLSearchParams(window.location.search);
+        let param = urlParams.get(name);
+        if (!param) {
+          return defaultValue;
         }
-      });
+        return param;
+      }
+
+      function isElementInViewport(el) {
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+          el = el[0];
+        }
+
+        var rect = el.getBoundingClientRect();
+
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+
+      function delay(time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+      }
+    </script>
+
+    <script>
+      const cardsElement = document.getElementById("cards");
+      const pageSize = parseInt(getParameterByName("page_size", "10"));
+      var currentPage = parseInt(getParameterByName("page", "1"));
+      var triggerElement;
+      var lastFetchedURL;
+
+      var splides = [];
+
+      function recreateSplides(page) {
+        console.log("update splide");
+        //const start = pageSize * (page - 1) + 1;
+        const start = 1;
+        const end = pageSize * page + 1;
+
+        // create Splide for new elements
+        for (let i = start; i < end; i++) {
+          try {
+            // remove splide
+            const carouselId = `#image-carousel${i}`;
+            new Splide(carouselId, { destroy: "completely" });
+
+            //document
+            //  .getElementById(carouselId)
+            //  .getElementsByClassName("splide__pagination")[0]
+            //  .remove();
+
+            var splideObject = new Splide(`#image-carousel${i}`, {
+              arrows: false,
+            });
+            splides.push(splideObject);
+          } catch (e) {
+            console.log(e);
+          }
+        }
+      }
+
+      function updateSplide(page) {
+        // destroy previous splides
+        splides.forEach((splide) => {
+          splide.destroy();
+        });
+        splides = [];
+
+        recreateSplides(page);
+
+        console.log(splides);
+        splides.forEach((splide) => {
+          if (!splide.state.is(Splide.STATES.MOUNTED)) splide.mount();
+        });
+      }
+
+      async function insertAndCreateCards() {
+        const url = `/catalog_items?page=${currentPage}&page_size=${pageSize}`;
+
+        if (url === lastFetchedURL) {
+          return;
+        }
+
+        const response = await fetch(url);
+        const responseText = await response.text();
+        cardsElement.innerHTML = cardsElement.innerHTML + responseText;
+        updateSplide(currentPage);
+        triggerElement = document.getElementById(
+          `image-carousel${pageSize * currentPage}`
+        );
+        currentPage++;
+        lastFetchedURL = url;
+      }
+
+      insertAndCreateCards();
+
+      setInterval(() => {
+        if (!triggerElement) {
+          return;
+        }
+
+        if (isElementInViewport(triggerElement)) {
+          insertAndCreateCards();
+        }
+      }, 1000);
     </script>
   </body>
 </html>
