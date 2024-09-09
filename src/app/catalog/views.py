@@ -12,12 +12,11 @@ def index(request):
 
 
 def paginated_items_view(request):
-    # for i in range(10):
+    # for i in range(100):
     #     product = Product.objects.create(
-    #         name=f"Product {i}", price=i*1000, in_stock=i)
-    #     for j in range(3):
-    #         ProductImage.objects.create(
-    #             product=product, image=f"static/images/{j + 1}.webp")
+    #         name=f"Product {i}", price=i * 1000, in_stock=i
+    #     )
+    #     ProductImage.objects.create(product=product, image=f"static/images/1.webp")
 
     page_info = get_page_info_from_request(request)
     products = get_paginated_products(page_info)

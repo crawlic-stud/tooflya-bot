@@ -110,12 +110,14 @@
 
         // fix previous elements
         for (let i = start; i < end - pageSize; i++) {
-          let carouselList = document.querySelector("#image-carousel${i} > ul");
+          let carouselList = document.querySelector(`#image-carousel${i} > ul`);
           let childrenCount = carouselList.children.length;
 
-          let selector = `#image-carousel${i} > ul > li:nth-child(-n+${
+          console.log(carouselList);
+
+          let selector = `#image-carousel${i} > ul > li:nth-child(-n+${Math.ceil(
             childrenCount / 2
-          })`;
+          )})`;
           let elements = document.querySelectorAll(selector);
           for (let element of elements) {
             if (element) element.remove();
