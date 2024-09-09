@@ -25,6 +25,7 @@
         stroke="#000"
         viewBox="0 0 48 48"
         class="spinner-loader"
+        id="spinner"
       >
         <g class="spinner">
           <circle cx="24" cy="24" r="19" fill="none" stroke-width="3" />
@@ -76,6 +77,7 @@
     </script>
 
     <script>
+      const loaderElement = document.getElementById("spinner");
       const cardsElement = document.getElementById("cards");
       const pageSize = parseInt(getParameterByName("page_size", "10"));
       var currentPage = parseInt(getParameterByName("page", "1"));
@@ -95,19 +97,23 @@
           try {
             // remove splide
             const carouselId = `#image-carousel${i}`;
-            new Splide(carouselId, { destroy: "completely" });
-
-            //document
-            //  .getElementById(carouselId)
-            //  .getElementsByClassName("splide__pagination")[0]
-            //  .remove();
 
             var splideObject = new Splide(`#image-carousel${i}`, {
               arrows: false,
+              pagination: true,
             });
             splides.push(splideObject);
           } catch (e) {
             console.log(e);
+          }
+        }
+
+        // fix previous elements
+        for (let i = start; i < end - pageSize; i++) {
+          let selector = `#image-carousel${i} > ul > li:nth-child(-n+3)`;
+          let elements = document.querySelectorAll(selector);
+          for (let element of elements) {
+            if (element) element.remove();
           }
         }
       }
@@ -131,6 +137,7 @@
         const url = `/catalog_items?page=${currentPage}&page_size=${pageSize}`;
 
         if (url === lastFetchedURL) {
+          console.log("END END");
           return;
         }
 
@@ -147,8 +154,11 @@
 
       insertAndCreateCards();
 
-      setInterval(() => {
+      let intervalId = setInterval(() => {
         if (!triggerElement) {
+          loaderElement.remove();
+          console.log("LOADER END!");
+          clearInterval(intervalId);
           return;
         }
 
