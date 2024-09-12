@@ -456,6 +456,7 @@ form > .search-container {
   width: 100%;
   border-color: var(--tg-theme-secondary-bg-color, rgb(240, 240, 240));
   padding-bottom: 8px;
+  margin-bottom: 8px;
   padding-top: 8px;
 }
 
@@ -476,5 +477,6 @@ form > .search-container {
 }
 .search-icon {
   padding-left: 8px;
+  fill: var(--tg-theme-button-text-color, rgb(26, 26, 179));
   color: var(--tg-theme-button-text-color, rgb(26, 26, 179));
 }
