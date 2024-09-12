@@ -13,6 +13,18 @@
     />
   </head>
   <body>
+    <form onsubmit="onSearchSubmit(); return false;">
+      <div class="search-container">
+        <span class="material-symbols-outlined search-icon">search</span>
+        <input
+          class="search"
+          id="search"
+          type="text"
+          placeholder="Search..."
+          aria-label="Search"
+        />
+      </div>
+    </form>
     <div id="webcrumbs">
       <div
         class="grid sm:grid-cols-2 lg:grid-cols-2 gap-1 p-0"
@@ -41,6 +53,16 @@
         );
         console.log(url);
         tg.openLink(url);
+      }
+    </script>
+
+    <script>
+      function onSearchSubmit(event) {
+        const searchInput = document.getElementById("search");
+        const search = searchInput.value;
+        const url = new URL(window.location.href);
+        url.searchParams.set("search", search);
+        window.location.href = url.toString();
       }
     </script>
 
@@ -81,6 +103,7 @@
       const cardsElement = document.getElementById("cards");
       const pageSize = parseInt(getParameterByName("page_size", "10"));
       var currentPage = parseInt(getParameterByName("page", "1"));
+      const search = getParameterByName("search", null);
       var triggerElement;
       var lastFetchedURL;
 
@@ -115,7 +138,7 @@
 
           console.log(carouselList);
           console.log(childrenCount);
-            
+
           let selector = `#image-carousel${i} > ul > li:nth-child(-n+${
             Math.round(childrenCount / 2) + 1
           })`;
@@ -142,7 +165,10 @@
       }
 
       async function insertAndCreateCards() {
-        const url = `/catalog_items?page=${currentPage}&page_size=${pageSize}`;
+        var url = `/catalog_items?page=${currentPage}&page_size=${pageSize}`;
+        if (search) {
+          url += `&search=${search}`;
+        }
 
         if (url === lastFetchedURL) {
           console.log("END END");

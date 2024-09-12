@@ -1,6 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpRequest
 
-from .models import Product, ProductImage
 from .services.pagination import get_paginated_products, get_page_info_from_request
 
 
@@ -11,15 +11,12 @@ def index(request):
     )
 
 
-def paginated_items_view(request):
-    # for i in range(100):
-    #     product = Product.objects.create(
-    #         name=f"Product {i}", price=i * 1000, in_stock=i
-    #     )
-    #     ProductImage.objects.create(product=product, image=f"static/images/1.webp")
-
+def paginated_items_view(request: HttpRequest):
+    # get query params
     page_info = get_page_info_from_request(request)
-    products = get_paginated_products(page_info)
+    search_query = request.GET.get("search", None)
+
+    products = get_paginated_products(page_info, search_query)
 
     items = [
         {

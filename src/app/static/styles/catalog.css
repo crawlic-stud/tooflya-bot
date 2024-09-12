@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
-
 @import url(https://fonts.googleapis.com/css2?family=Nunito&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200);
 
 /*! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com*/
 *,
@@ -413,12 +413,6 @@ body {
   aspect-ratio: 1.5;
   object-fit: cover;
 }
-
-.bottom-btns {
-
-}
-
-
 .spinner {
   transform-origin: center;
   animation: spinnerAnimation 2s linear infinite;
@@ -453,4 +447,34 @@ svg.spinner-loader {
   margin: 0 auto;
   stroke: var(--tg-theme-button-text-color, rgb(211, 243, 253));
   text-align: center;
+}
+
+form > .search-container {
+  display: flex;
+  align-items: center;
+  border-bottom-width: 1px;
+  width: 100%;
+  border-color: var(--tg-theme-secondary-bg-color, rgb(240, 240, 240));
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+.search {
+  appearance: none;
+  background: transparent;
+  border: none;
+  width: 100%;
+  color: var(--tg-theme-button-text-color, rgb(26, 26, 179));
+  margin-right: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  line-height: 1.25;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.search-icon {
+  padding-left: 8px;
+  color: var(--tg-theme-button-text-color, rgb(26, 26, 179));
 }
