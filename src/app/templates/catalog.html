@@ -46,6 +46,7 @@
     </div>
     <script>
       const tg = window.Telegram.WebApp;
+      if (!tg.isExpanded) tg.expand();
 
       function iWant() {
         let url = encodeURI(
