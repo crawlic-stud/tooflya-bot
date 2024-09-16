@@ -88,7 +88,7 @@
         let currentFill = element.getAttribute("fill");
 
         tg.HapticFeedback.impactOccurred("heavy");
-        tg.HapticFeedback.selectionChanged();
+        //tg.HapticFeedback.selectionChanged();
 
         if (currentFill == "none") {
           element.setAttribute("fill", tg.themeParams.button_color);
