@@ -88,6 +88,10 @@
         let currentFill = element.getAttribute("fill");
 
         setTimeout(() => tg.HapticFeedback.impactOccurred("light"), 1000);
+        setTimeout(() => tg.HapticFeedback.impactOccurred("medium"), 2000);
+        setTimeout(() => tg.HapticFeedback.impactOccurred("heavy"), 3000);
+        setTimeout(() => tg.HapticFeedback.impactOccurred("rigid"), 4000);
+        setTimeout(() => tg.HapticFeedback.impactOccurred("soft"), 5000);
 
         if (currentFill == "none") {
           element.setAttribute("fill", tg.themeParams.button_color);
