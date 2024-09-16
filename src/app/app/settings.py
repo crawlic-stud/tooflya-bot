@@ -137,6 +137,7 @@ IMAGES_URL = image_processing.IMAGES_URL
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 IMAGES_ROOT = BASE_DIR / image_processing.IMAGES_ROOT
+ASSETS_ROOT = BASE_DIR / "static/assets/"
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
 

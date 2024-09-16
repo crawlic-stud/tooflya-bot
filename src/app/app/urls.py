@@ -29,5 +29,9 @@ urlpatterns = (
         path("catalog_items/", catalog.views.paginated_items_view),
     ]
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    + static(settings.IMAGES_URL, document_root=settings.IMAGES_ROOT)
+    + static(
+        settings.IMAGES_URL,
+        view=catalog.views.serve_images,
+        document_root=settings.IMAGES_ROOT,
+    )
 )

@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpRequest
+from django.views.static import serve
+from django.http import Http404
 
 from .services.pagination import get_paginated_products, get_page_info_from_request
+from app.settings import ASSETS_ROOT
 
 
 def index(request):
@@ -36,3 +39,11 @@ def paginated_items_view(request: HttpRequest):
             "items_offset": items_offset,
         },
     )
+
+
+def serve_images(request: HttpRequest, path: str, document_root: str):
+    try:
+        response = serve(request, path, document_root)
+    except Http404:
+        response = serve(request, "img-placeholder.webp", ASSETS_ROOT)
+    return response

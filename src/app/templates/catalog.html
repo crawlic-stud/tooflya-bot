@@ -86,6 +86,9 @@
     <script>
       function toggleHeart(element) {
         let currentFill = element.getAttribute("fill");
+
+        setTimeout(() => tg.HapticFeedback.impactOccurred("light"), 1000);
+
         if (currentFill == "none") {
           element.setAttribute("fill", tg.themeParams.button_color);
         } else {
