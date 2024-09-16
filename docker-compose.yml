@@ -12,6 +12,7 @@ services:
       - .env
     ports:
       - ${APP_PORT}:8000
+    restart: always
 
 volumes:
   staticfiles:  

@@ -84,6 +84,17 @@
     </script>
 
     <script>
+      function toggleHeart(element) {
+        let currentFill = element.getAttribute("fill");
+        if (currentFill == "none") {
+          element.setAttribute("fill", tg.themeParams.button_color);
+        } else {
+          element.setAttribute("fill", "none");
+        }
+      }
+    </script>
+
+    <script>
       function getParameterByName(name, defaultValue) {
         const urlParams = new URLSearchParams(window.location.search);
         let param = urlParams.get(name);

@@ -413,6 +413,11 @@ body {
   aspect-ratio: 1.5;
   object-fit: cover;
 }
+.splide {
+  position: relative;
+  display: inline-block; /* <= shrinks container to image size */
+  transition: transform 150ms ease-in-out;
+}
 .spinner {
   transform-origin: center;
   animation: spinnerAnimation 2s linear infinite;
@@ -479,4 +484,13 @@ form > .search-container {
   padding-left: 8px;
   fill: var(--tg-theme-button-text-color, rgb(26, 26, 179));
   color: var(--tg-theme-button-text-color, rgb(26, 26, 179));
+}
+.heart {
+  /* fill: var(--tg-theme-button-color, rgb(209, 49, 49)); */
+  stroke: var(--tg-theme-button-color, rgb(209, 49, 49));
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 8px;
+  z-index: 100;
 }
