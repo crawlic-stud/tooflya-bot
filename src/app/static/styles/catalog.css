@@ -486,11 +486,13 @@ form > .search-container {
   color: var(--tg-theme-button-text-color, rgb(26, 26, 179));
 }
 .heart {
-  /* fill: var(--tg-theme-button-color, rgb(209, 49, 49)); */
   stroke: var(--tg-theme-button-color, rgb(209, 49, 49));
   position: absolute;
   top: 0px;
   right: 0px;
   margin: 8px;
   z-index: 100;
+}
+.liked {
+  fill: var(--tg-theme-button-color, rgb(209, 49, 49));
 }

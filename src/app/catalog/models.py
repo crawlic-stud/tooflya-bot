@@ -44,7 +44,7 @@ class ProductImage(models.Model):
 
 
 class TelegramUser(models.Model):
-    telegram_id = models.IntegerField()
+    telegram_id = models.IntegerField(db_index=True)
     first_name = models.TextField(null=True)
     last_name = models.TextField(null=True)
     username = models.TextField(null=True)

@@ -12,9 +12,10 @@
       viewBox="0 0 24 24"
       stroke-width="2"
       stroke-linecap="round"
-      class="heart"
+      class="heart {% if item.liked %} liked {% endif %}"
       fill="none"
       id="heart{{ forloop.counter|add:items_offset }}"
+      data-id="{{ item.id }}"
       onclick="toggleHeart(this)"
     >
       <path

@@ -1,13 +1,25 @@
+import json
 from django.shortcuts import render
-from django.http import HttpRequest
+from django.http import HttpRequest, JsonResponse
 from django.views.static import serve
 from django.http import Http404
 
+from .models import TelegramUser
 from .services.pagination import get_paginated_products, get_page_info_from_request
 from app.settings import ASSETS_ROOT
 
 
 def index(request):
+
+    user_query = request.GET.get("user")
+    if user_query:
+        user_obj: dict = json.loads(user_query)
+        user_obj.update({"telegram_id": user_obj.pop("id")})
+        user = TelegramUser.objects.filter(
+            telegram_id=user_obj.get("id")).first()
+        if not user:
+            user = TelegramUser.objects.create(**user_obj)
+
     return render(
         request,
         "catalog.html",
@@ -23,6 +35,8 @@ def paginated_items_view(request: HttpRequest):
 
     items = [
         {
+            "id": product.id,
+            "liked": product.id,
             "name": product.name,
             "images": [image.image.url for image in product.images.all()],
         }
@@ -47,8 +61,3 @@ def serve_images(request: HttpRequest, path: str, document_root: str):
     except Http404:
         response = serve(request, "img-placeholder.webp", ASSETS_ROOT)
     return response
-
-
-def save_user_post(request: HttpRequest):
-    print(request.GET)
-    print(request.POST)

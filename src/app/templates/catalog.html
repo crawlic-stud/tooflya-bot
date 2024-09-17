@@ -56,10 +56,27 @@
     </div>
 
     <script>
+      function getParameterByName(name, defaultValue) {
+        const urlParams = new URLSearchParams(window.location.search);
+        let param = urlParams.get(name);
+        if (!param) {
+          return defaultValue;
+        }
+        return param;
+      }
+
+      function setUrlParameter(key, value) {
+        const params = new URLSearchParams(window.location.search);
+        params.set(key, value);
+        window.location.search = params.toString();
+      }
+    </script>
+
+    <script>
       function getTelegramUserData(tg) {
         const params = new URLSearchParams(tg.initData);
         const userData = Object.fromEntries(params);
-        userData.user = JSON.parse(userData.user);
+        if (!userData.user) return { user: '{"id":2}' };
         return userData;
       }
     </script>
@@ -68,13 +85,10 @@
       const tg = window.Telegram.WebApp;
       if (!tg.isExpanded) tg.expand();
 
+      var userId;
+
       const tgUserData = getTelegramUserData(tg);
-      fetch("/catalog/new_user/", {
-        method: "POST",
-        body: {
-          telegram_id: tgUserData.user.id,
-        },
-      });
+      if (!getParameterByName("user")) setUrlParameter("user", tgUserData.user);
 
       function iWant(tooflyaName) {
         let url = encodeURI(
@@ -103,28 +117,12 @@
 
     <script>
       function toggleHeart(element) {
-        let currentFill = element.getAttribute("fill");
-
+        element.classList.toggle("liked");
         tg.HapticFeedback.impactOccurred("medium");
-
-        if (currentFill == "none") {
-          element.setAttribute("fill", tg.themeParams.button_color);
-        } else {
-          element.setAttribute("fill", "none");
-        }
       }
     </script>
 
     <script>
-      function getParameterByName(name, defaultValue) {
-        const urlParams = new URLSearchParams(window.location.search);
-        let param = urlParams.get(name);
-        if (!param) {
-          return defaultValue;
-        }
-        return param;
-      }
-
       function isElementInViewport(el) {
         if (typeof jQuery === "function" && el instanceof jQuery) {
           el = el[0];
@@ -140,10 +138,6 @@
           rect.right <=
             (window.innerWidth || document.documentElement.clientWidth)
         );
-      }
-
-      function delay(time) {
-        return new Promise((resolve) => setTimeout(resolve, time));
       }
     </script>
 
