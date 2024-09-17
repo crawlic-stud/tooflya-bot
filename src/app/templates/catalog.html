@@ -69,7 +69,7 @@
       if (!tg.isExpanded) tg.expand();
 
       const tgUserData = getTelegramUserData(tg);
-      fetch("/catalog/new_user", {
+      fetch("/catalog/new_user/", {
         method: "POST",
         body: {
           telegram_id: tgUserData.user.id,
