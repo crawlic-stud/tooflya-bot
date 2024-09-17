@@ -68,6 +68,14 @@
     </script>
 
     <script>
+      alert(tg.initData);
+      const params = new URLSearchParams(tg.initData);
+
+      const userData = Object.fromEntries(params);
+      userData.user = JSON.parse(userData.user);
+    </script>
+
+    <script>
       const searchInput = document.getElementById("search");
 
       document.addEventListener("DOMContentLoaded", function () {
