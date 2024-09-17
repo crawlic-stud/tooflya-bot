@@ -47,3 +47,8 @@ def serve_images(request: HttpRequest, path: str, document_root: str):
     except Http404:
         response = serve(request, "img-placeholder.webp", ASSETS_ROOT)
     return response
+
+
+def save_user_post(request: HttpRequest):
+    print(request.GET)
+    print(request.POST)

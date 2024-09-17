@@ -26,6 +26,7 @@ urlpatterns = (
     [
         path("admin/", admin.site.urls),
         path("catalog/", catalog.views.index),
+        path("catalog/new_user/", catalog.views.save_user_post),
         path("catalog_items/", catalog.views.paginated_items_view),
     ]
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

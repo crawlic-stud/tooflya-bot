@@ -41,3 +41,16 @@ class ProductImage(models.Model):
             )
         else:
             return "(No image)"
+
+
+class TelegramUser(models.Model):
+    telegram_id = models.IntegerField()
+    first_name = models.TextField(null=True)
+    last_name = models.TextField(null=True)
+    username = models.TextField(null=True)
+    language_code = models.TextField(null=True)
+
+    favorites = models.ManyToManyField(Product, related_name="users")
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} (@{self.username})"

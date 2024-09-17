@@ -54,9 +54,27 @@
         </g>
       </svg>
     </div>
+
+    <script>
+      function getTelegramUserData(tg) {
+        const params = new URLSearchParams(tg.initData);
+        const userData = Object.fromEntries(params);
+        userData.user = JSON.parse(userData.user);
+        return userData;
+      }
+    </script>
+
     <script>
       const tg = window.Telegram.WebApp;
       if (!tg.isExpanded) tg.expand();
+
+      const tgUserData = getTelegramUserData(tg);
+      fetch("/catalog/new_user", {
+        method: "POST",
+        body: {
+          telegram_id: tgUserData.user.id,
+        },
+      });
 
       function iWant(tooflyaName) {
         let url = encodeURI(
@@ -65,14 +83,6 @@
         tg.HapticFeedback.notificationOccurred("success");
         tg.openLink(url);
       }
-    </script>
-
-    <script>
-      const params = new URLSearchParams(tg.initData);
-
-      const userData = Object.fromEntries(params);
-      alert(userData.user);
-      userData.user = JSON.parse(userData.user);
     </script>
 
     <script>
