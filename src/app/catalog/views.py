@@ -14,11 +14,16 @@ def index(request):
     user_query = request.GET.get("user")
     if user_query:
         user_obj: dict = json.loads(user_query)
-        user_obj.update({"telegram_id": user_obj.pop("id")})
         user = TelegramUser.objects.filter(
             telegram_id=user_obj.get("id")).first()
         if not user:
-            user = TelegramUser.objects.create(**user_obj)
+            user = TelegramUser.objects.create(
+                telegram_id=user_obj.get("id"),
+                first_name=user_obj.get("first_name"),
+                last_name=user_obj.get("last_name"),
+                username=user_obj.get("username"),
+                language_code=user_obj.get("language_code"),
+            )
 
     return render(
         request,
