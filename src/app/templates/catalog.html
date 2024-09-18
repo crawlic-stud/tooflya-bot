@@ -122,7 +122,15 @@
 
         fetch(`/like/?id=${element.dataset.id}&user_id=${userId}`, {
           method: "POST",
-        });
+        })
+          .then((response) => {
+            if (response.status != 200) {
+              alert("Ошибка при добавлении в избранное");
+            }
+          })
+          .then(() => {
+            tg.HapticFeedback.impactOccurred("light");
+          });
       }
     </script>
 
