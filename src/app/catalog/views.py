@@ -14,8 +14,7 @@ def index(request):
     user_query = request.GET.get("user")
     if user_query:
         user_obj: dict = json.loads(user_query)
-        user = TelegramUser.objects.filter(
-            telegram_id=user_obj.get("id")).first()
+        user = TelegramUser.objects.filter(telegram_id=user_obj.get("id")).first()
         if not user:
             user = TelegramUser.objects.create(
                 telegram_id=user_obj.get("id"),
@@ -90,7 +89,7 @@ def like_unlike_product(request: HttpRequest):
 
     telegram_user = TelegramUser.objects.get(telegram_id=user_id)
     favorite_exists = TelegramUser.objects.filter(favorites__id=product_id).exists()
-    
+
     if favorite_exists:
         telegram_user.favorites.remove(product_id)
     else:
