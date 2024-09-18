@@ -118,7 +118,7 @@
     <script>
       function toggleHeart(element) {
         element.classList.toggle("liked");
-        tg.HapticFeedback.impactOccurred("medium");
+        //tg.HapticFeedback.impactOccurred("medium");
 
         fetch(`/like/?id=${element.dataset.id}&user_id=${userId}`, {
           method: "POST",
@@ -127,9 +127,14 @@
             if (response.status != 200) {
               alert("Ошибка при добавлении в избранное");
             }
+            return response.json();
           })
-          .then(() => {
-            tg.HapticFeedback.impactOccurred("light");
+          .then((data) => {
+            if (data.status == "ADDED") {
+              tg.HapticFeedback.impactOccurred("heavy");
+            } else {
+              tg.HapticFeedback.impactOccurred("light");
+            }
           });
       }
     </script>

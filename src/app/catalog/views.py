@@ -1,4 +1,6 @@
 import json
+from enum import Enum
+
 from django.shortcuts import render
 from django.http import HttpRequest, JsonResponse
 from django.views.static import serve
@@ -7,6 +9,11 @@ from django.http import Http404
 from .models import TelegramUser
 from .services.pagination import get_paginated_products, get_page_info_from_request
 from app.settings import ASSETS_ROOT
+
+
+class LikeStatus(str, Enum):
+    ADDED = "ADDED"
+    REMOVED = "REMOVED"
 
 
 def index(request):
@@ -93,8 +100,11 @@ def like_unlike_product(request: HttpRequest):
         favorites__id=product_id, telegram_id=user_id
     ).exists()
 
+    status = LikeStatus.ADDED
+    
     if favorite_exists:
         telegram_user.favorites.remove(product_id)
+        status = LikeStatus.REMOVED
     else:
         telegram_user.favorites.add(product_id)
 
@@ -102,4 +112,4 @@ def like_unlike_product(request: HttpRequest):
     # print(f"User favorites: {telegram_user.favorites.all()}")
     # print(f"Favorite exists: {favorite_exists}")
 
-    return JsonResponse({"status": "OK"})
+    return JsonResponse({"status": status})
