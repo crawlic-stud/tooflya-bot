@@ -90,15 +90,16 @@ def like_unlike_product(request: HttpRequest):
 
     telegram_user = TelegramUser.objects.get(telegram_id=user_id)
     favorite_exists = TelegramUser.objects.filter(
-        favorites__id=product_id).exists()
+        favorites__id=product_id, telegram_id=user_id
+    ).exists()
 
     if favorite_exists:
         telegram_user.favorites.remove(product_id)
     else:
         telegram_user.favorites.add(product_id)
 
-    print(f"Telegram user: {telegram_user}")
-    print(f"User favorites: {telegram_user.favorites.all()}")
-    print(f"Favorite exists: {favorite_exists}")
+    # print(f"Telegram user: {telegram_user}")
+    # print(f"User favorites: {telegram_user.favorites.all()}")
+    # print(f"Favorite exists: {favorite_exists}")
 
     return JsonResponse({"status": "OK"})
