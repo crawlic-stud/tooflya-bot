@@ -27,6 +27,7 @@ urlpatterns = (
         path("admin/", admin.site.urls),
         path("catalog/", catalog.views.index),
         path("catalog_items/", catalog.views.paginated_items_view),
+        path("like/", catalog.views.like_unlike_product)
     ]
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     + static(

@@ -38,10 +38,19 @@ def paginated_items_view(request: HttpRequest):
 
     products = get_paginated_products(page_info, search_query)
 
+    user = TelegramUser.objects.filter(
+        telegram_id=request.GET.get("user_id", None)
+    ).first()
+
+    if user.favorites.exists():
+        liked_products_ids = {favorite.id for favorite in user.favorites.all()}
+    else:
+        liked_products_ids = set()
+
     items = [
         {
             "id": product.id,
-            "liked": product.id,
+            "liked": product.id in liked_products_ids,
             "name": product.name,
             "images": [image.image.url for image in product.images.all()],
         }
@@ -66,3 +75,25 @@ def serve_images(request: HttpRequest, path: str, document_root: str):
     except Http404:
         response = serve(request, "img-placeholder.webp", ASSETS_ROOT)
     return response
+
+
+def like_unlike_product(request: HttpRequest):
+    product_id = request.GET.get("id", None)
+    user_id = request.GET.get("user_id", None)
+
+    if not product_id or not user_id:
+        response = JsonResponse({"status": "ERROR"})
+        response.status_code = 400
+        return response
+
+    product_id, user_id = int(product_id), int(user_id)
+
+    telegram_user = TelegramUser.objects.get(telegram_id=user_id)
+    favorite_exists = TelegramUser.objects.filter(favorites__id=product_id).exists()
+    
+    if favorite_exists:
+        telegram_user.favorites.remove(product_id)
+    else:
+        telegram_user.favorites.add(product_id)
+
+    return JsonResponse({"status": "OK"})

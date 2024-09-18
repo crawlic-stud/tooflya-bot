@@ -85,10 +85,10 @@
       const tg = window.Telegram.WebApp;
       if (!tg.isExpanded) tg.expand();
 
-      var userId;
-
       const tgUserData = getTelegramUserData(tg);
       if (!getParameterByName("user")) setUrlParameter("user", tgUserData.user);
+
+      const userId = JSON.parse(tgUserData.user).id;
 
       function iWant(tooflyaName) {
         let url = encodeURI(
@@ -119,6 +119,10 @@
       function toggleHeart(element) {
         element.classList.toggle("liked");
         tg.HapticFeedback.impactOccurred("medium");
+
+        fetch(`/like/?id=${element.dataset.id}&user_id=${userId}`, {
+          method: "POST",
+        });
       }
     </script>
 
@@ -211,6 +215,9 @@
         var url = `/catalog_items?page=${currentPage}&page_size=${pageSize}`;
         if (search) {
           url += `&search=${search}`;
+        }
+        if (userId) {
+          url += `&user_id=${userId}`;
         }
 
         if (url === lastFetchedURL) {

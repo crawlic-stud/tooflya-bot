@@ -50,7 +50,7 @@ class TelegramUser(models.Model):
     username = models.TextField(null=True)
     language_code = models.TextField(null=True)
 
-    favorites = models.ManyToManyField(Product, related_name="users")
+    favorites = models.ManyToManyField(Product, related_name="users_favorites")
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} (@{self.username})"
